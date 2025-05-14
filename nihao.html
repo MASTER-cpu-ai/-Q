@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>用户登录</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <h1>用户登录</h1>
-    <form action="login.php" method="post">
-        <label for="username">用户名:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">密码:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit" name="login">登录</button>
-    </form>
-</body>
-</html>
+<label for="country">国家：</label>
+<select id="country" name="country">
+  <option value="cn">中国</option>
+  <option value="us">美国</option>
+  <option value="uk">英国</option>
+</select>
+
+<label for="message">留言：</label>
+<textarea id="message" name="message" rows="4"></textarea>
