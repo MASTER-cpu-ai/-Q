@@ -1,20 +1,44 @@
-<label for="name">姓名：</label>
-<input type="text" id="name" name="name" required>
-
-<label for="email">邮箱：</label>
-<input type="email" id="email" name="email" required>
-
-<label for="password">密码：</label>
-<input type="password" id="password" name="password" required>
-
-<label>性别：</label>
-<input type="radio" id="male" name="gender" value="male">
-<label for="male">男</label>
-<input type="radio" id="female" name="gender" value="female">
-<label for="female">女</label>
-
-<label>爱好：</label>
-<input type="checkbox" id="reading" name="hobbies" value="reading">
-<label for="reading">阅读</label>
-<input type="checkbox" id="sports" name="hobbies" value="sports">
-<label for="sports">运动</label>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>用户注册表单</title>
+</head>
+<body>
+  <form action="/submit-form" method="POST">
+    <h2>用户注册</h2>
+    
+    <label for="username">用户名：</label>
+    <input type="text" id="username" name="username" required>
+    
+    <label for="email">邮箱：</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="password">密码：</label>
+    <input type="password" id="password" name="password" required>
+    
+    <label>性别：</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">男</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">女</label>
+    
+    <label>兴趣爱好：</label>
+    <input type="checkbox" id="reading" name="hobbies" value="reading">
+    <label for="reading">阅读</label>
+    <input type="checkbox" id="sports" name="hobbies" value="sports">
+    <label for="sports">运动</label>
+    
+    <label for="country">国家：</label>
+    <select id="country" name="country">
+      <option value="cn">中国</option>
+      <option value="us">美国</option>
+      <option value="uk">英国</option>
+    </select>
+    
+    <label for="message">留言：</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+    
+    <button type="submit">注册</button>
+  </form>
+</body>
+</html>
