@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>共建和平世界</title>
+	<style>
+		td {
+			height: 45px;
+			width: 175px;
+			text-align: center;
+			vertical-align: middle;
+			background: darkred;
+
+		}
+		a {
+			color: white;
+		}
+		table {
+			border-spacing:30px 2px;
+		}
+		a:hover{color: skyblue;}
+		a:active{color: blue;}
+		a:visited{color: lightpink;}
+		#box1{
+			width: 375px;height: 250px;
+			padding-left: 20px;
+
+		}
+		div {
+			margin-top: 20px;
+		}
+		/* 评论区容器样式 */
+        .comment-container {
+            max-width: 800px;
+            margin: 300px auto;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-color: green;
+            border-radius: 8px;
+        }
+
+        /* 标题样式 */
+        .comment-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* 输入区域样式 */
+        .comment-input {
+            margin-bottom: 30px;
+        }
+
+        /* 文本框样式 */
+        #commentText {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none; /* 禁止拉伸文本框 */
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* 提交按钮样式 */
+        #submitComment {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #submitComment:hover {
+            background-color: #45a049;
+        }
+
+        /* 评论列表样式 */
+        .comment-list {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        /* 单个评论项样式 */
+        .comment-item {
+            padding: 15px;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+
+        /* 评论内容样式 */
+        .comment-content {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        /* 评论时间样式 */
+        .comment-time {
+            font-size: 12px;
+            color: #999;
+            text-align: right;
+        }
+		
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td><em><a href="D:\Program Files\Sublime Text\新建文件夹\shijiejushi.html">世界局势</a></em></td>
+			<td><em><a>历史事件</a></em></td>
+			<td><em><a>重要人物</a></em></td>
+			<td><em><a>人类命运共同体</a></em></td>
+			<td><em><a>资源竞争</a></em></td>
+			<td><em><a>英雄事迹</a></em></td>
+			<td><em><a>反恐组织</a></em></td>
+
+			
+		</tr>
+	</table>
+<hr style="height: 2px; border: none; background-color: #000;">
+	<p style="font-size:30px; color:red;">Have you advocated for peace?</p>
+	<p id='box1' style="font-size: 20px;">
+		和平从不是 “理所当然” 的馈赠，而是需要每个国家、每个个体守护的共识 —— 放下对立，多些包容，才能让世界远离冲突的阴影。
+国与国之间，不必用边界线筑起高墙，而该用合作架起桥梁。就像河流不会因国界而停止流动，粮食、医疗、科技这些守护生命的资源，更该跨越分歧，流向每一个需要的角落。当大国不再执着于 “霸权”，小国不再困于 “威胁”，平等对话才会成为解决问题的首选，而非枪炮。对每个普通人而言，和平也不是 “远方的事”。少一句煽动对立的言论，多一次对不同文化的理解；拒绝把 “差异” 当成 “敌意”，愿意倾听陌生的声音 —— 这些微小的选择，都是在为和平 “添砖加瓦”。就像寒冬里的每一点微光，汇聚起来就能驱散黑暗，每个个体的善意与包容，终会织成守护世界的和平之网。
+	</p>
+	<img style="width: 100vw; height: 100vh; object-fit: cover; position: fixed; top: 0; left: 0; z-index: -1;" src="D:\Program Files\Sublime Text\新建文件夹\3296.jpg_wh860.jpg">
+	<form style="float: right; margin-right:20px; margin-top:50px ;margin-top: -300px;">
+		<label style="font-size:45px;color: skyblue;">为维护世界和平助力！</label>
+		<div>
+		姓名：<input type="text">
+		电话：<input type="text">
+	</div>
+		<div>国家：
+			<select>
+			<option>China</option>
+			<option>United States</option>
+			<option>Japan</option>
+			<option>United Kingdom</option>
+			<option>France</option>
+			<option>South Korea</option>
+			<option>India</option>
+			<option>Russia</option>
+			<option>Italy</option>
+			<option>Mongolia</option>
+		</select>
+		<span> &nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp    </span>
+		性别：<input type="radio" name="gender"> 男<input type="radio" name="gender"> 女
+	</div>
+		<div>
+			<textarea rows="25" cols="60" placeholder="对世界和平的看法，不超过1000字"></textarea>
+		</div>
+		<input style="width:90px;height: 30px;" type="submit" value="提交 " onclick="showSuccessMessage(event)">
+			
+	</form>
+	<script>
+		function showSuccessMessage(event){
+			event.preventDefault();
+			alert("提交成功，感谢支持！");
+		}
+	</script>
+	<div class="comment-container">
+        <h2 class="comment-title">评论区</h2>
+
+        <!-- 评论输入区域 -->
+        <div class="comment-input">
+            <textarea id="commentText" placeholder="请输入你的评论..."></textarea>
+            <button id="submitComment">提交评论</button>
+        </div>
+
+        <!-- 评论列表展示区域 -->
+        <div class="comment-list" id="commentList">
+            <!-- 评论会通过 JavaScript 动态添加到这里 -->
+        </div>
+    </div>
+
+    <script>
+        // 获取DOM元素
+        const commentText = document.getElementById('commentText');
+        const submitBtn = document.getElementById('submitComment');
+        const commentList = document.getElementById('commentList');
+
+        // 提交评论函数
+        function addComment() {
+            // 获取用户输入的评论内容（去除前后空格）
+            const content = commentText.value.trim();
+            
+            // 如果内容为空，提示用户
+            if (content === '') {
+                alert('请输入评论内容！');
+                return;
+            }
+
+            // 获取当前时间（格式化）
+            const now = new Date();
+            const timeStr = `${now.getFullYear()}-${(now.getMonth()+1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+
+            // 创建评论元素
+            const commentItem = document.createElement('div');
+            commentItem.className = 'comment-item';
+            commentItem.innerHTML = `
+                <p class="comment-content">${content}</p>
+                <p class="comment-time">${timeStr}</p>
+            `;
+
+            // 将新评论添加到列表最上方
+            commentList.insertBefore(commentItem, commentList.firstChild);
+
+            // 清空输入框
+            commentText.value = '';
+        }
+
+        // 绑定提交按钮点击事件
+        submitBtn.addEventListener('click', addComment);
+
+        // 支持按 Enter 键提交评论（按 Shift+Enter 换行）
+        commentText.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // 阻止默认换行
+                addComment(); // 提交评论
+            }
+        });
+    </script>
+
+</body>
+</html>

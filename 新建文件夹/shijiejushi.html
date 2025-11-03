@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>世界局势</title>
+    <style>
+        .background-container {
+            /* 背景容器保持显示 */
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 600px; /* 确保有足够高度显示背景 */
+        }
+        
+        .background-images {
+            /* 背景图片样式 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* 背景在底层 */
+            opacity: 0.3; /* 背景图片透明度，便于文字阅读 */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .text-content {
+            /* 文字内容样式 */
+            position: relative;
+            z-index: 2; /* 文字在背景上方 */
+            display: none; /* 默认隐藏文字 */
+            padding: 20px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+            z-index: 3; /* 按钮在最上层 */
+        }
+        
+        body {
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggleContent()">显示/隐藏文字</button>
+    
+    <div class="background-container">
+        <!-- 背景图片作为背景容器的背景 -->
+        <div class="background-images" style="background-image: url('C:\Users\35239\Desktop\新建文件夹 (2)\B0AA0DFBBD053B0E153DC6FF36F78D684B8914E8_size60_w1080_h667.jpeg');"></div>
+        
+        <!-- 文字内容，受显示/隐藏控制 -->
+        <div class="text-content" id="textContent">
+            <h3>
+                当前世界局势复杂多变，充满了不确定性和挑战，以下是一些关于世界局势的看法：
+            </h3>
+            <ul>
+                <li>地缘政治冲突不断：俄乌冲突已持续三年多，陷入消耗战，给欧洲安全及全球能源、粮食供应链带来深远影响。巴以局势也处于 “无战无和” 的脆弱阶段，停火协议脆弱，双方相互指责，和平进程受阻。此外，美国对伊朗持续 “极限施压”，进一步加剧了中东地区的紧张局势。</li>
+                <li>大国关系错综复杂：中美关系出现阶段性缓和，在经贸领域达成了一些实质性协议，但双方在高科技领域的竞争依然激烈，美国并未放松对尖端芯片制造设备的出口管制。美俄战略平衡受新武器影响，俄罗斯宣称研发出的新型远程导弹，在一定程度上恢复了与美国在核威慑上的平衡。</li>
+                <li>全球经济复苏乏力：全球经济增长不均，发达经济体抗通胀抑制增长，部分新兴市场受债务与需求疲软拖累。贸易增长放缓，保护主义隐忧未消，高利率环境下全球债务风险累积，金融市场脆弱性增加。同时，绿色转型加速也引发了关键资源争夺，供应链 “韧性” 重塑冲击全球化。</li>
+                <li>新一轮科技革命和产业变革正在突飞猛进，人工智能呈现 “爆发式” 发展态势。全球科技竞争激烈展开，传统技术强国不愿接受后发国家迅猛发展，恶意设限打压，试图保持优势，新兴技术国家则加快创新步伐和非对称赶超。</li>
+                <li>全球性挑战日益增多：根据世界经济论坛的报告，当前世界面临的首要短期风险是 “国家间的武装冲突” 和 “地缘经济对抗”。此外，误讯和虚假信息的传播，尤其是在 AI 技术加持下，这一问题变得更加复杂和危险。社会两极分化和极端天气事件也是高度关注的全球性风险。</li>
+            </ul>
+            <p>尽管世界局势面临诸多挑战，但和平与发展仍是时代主题。各国应加强对话与合作，共同应对全球性挑战，推动构建更加公正合理的国际秩序。</p>
+        </div>
+    </div>
+
+    <script>
+        // 只控制文字内容的显示/隐藏
+        function toggleContent() {
+            const textContent = document.getElementById('textContent');
+            if (textContent.style.display === 'none' || textContent.style.display === '') {
+                textContent.style.display = 'block';
+            } else {
+                textContent.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
