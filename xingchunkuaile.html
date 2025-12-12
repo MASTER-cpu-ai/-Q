@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>新春快乐</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: pink;
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden; /* 隐藏超出屏幕的雪花，避免滚动条 */
+		}
+
+		/* 雪花核心样式：关键修改 z-index: 999（最高层级） */
+		.snowflake {
+			position: absolute;
+			top: -10px; /* 初始在屏幕外上方 */
+			background: white;
+			border-radius: 50%; /* 圆形雪花 */
+			opacity: 0.7; /* 半透明，既覆盖又不遮挡内容可读性 */
+			pointer-events: none; /* 关键：雪花可点击穿透，不影响表单/图片交互 */
+			animation: snowfall linear infinite;
+			z-index: 999; /* 设为页面最高层级，覆盖所有元素 */
+		}
+
+		/* 雪花飘落动画（修复 CSS 不支持 Math.random()） */
+		@keyframes snowfall {
+			0% {
+				transform: translate(0, 0) rotate(0deg);
+				opacity: 0;
+			}
+			10% {
+				opacity: 0.8;
+			}
+			90% {
+				opacity: 0.8;
+			}
+			100% {
+				transform: translate(-20vw, 100vh) rotate(720deg);
+				opacity: 0;
+			}
+		}
+
+		/* 其他元素层级保持低于 999 即可（无需修改，原层级已满足） */
+		.spring-img{
+			max-width:30%;
+			border-radius: 10px;
+			margin-top: 50px;
+			margin-left: 65%; 
+            position: relative; 
+            z-index: 1; /* 远低于雪花的 999 */
+		}
+		.mdcg-img{
+			max-width: 25%;
+			position: absolute;
+			top: -80px;
+			left: 50%;
+			transform: translateX(-50%);
+			border-radius: 10px;
+            z-index: 1;
+		}
+		.horse-img{
+			width:500px;
+			border-radius: 10px;
+			top: 115px;
+			left: 5%;
+			position: absolute;
+            z-index: 1;
+		}
+		
+		.login-form {
+            position: absolute;
+            top: 250px; 
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2; /* 仍低于雪花的 999 */
+            background-color: white;
+            border: 2px solid #DAA520;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 400px;
+		}
+        .form-item {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-item label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .form-item input {
+            height: 45px;
+            padding: 0 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .form-item input:focus {
+            border-color: #409eff;
+            box-shadow: 0 0 0 3px rgba(64, 158, 255, 0.1);
+        }
+        .form-item input[type="password"] {
+            font-family: "Courier New", monospace;
+        }
+        .submit-btn {
+            width: 100%;
+            height: 48px;
+            background-color: hotpink;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: deeppink;
+        }
+
+        @media (max-width: 1200px) {
+            .horse-img {
+                width: 300px; 
+                top: 200px;
+            }
+            .spring-img {
+                margin-left: 60%;
+                margin-top: 200px;
+            }
+            .login-form {
+                top: 180px; 
+                max-width: 300px;
+            }
+        }
+	</style>
+</head>
+<body>
+	<img src="image\\mdcg.webp" alt="恭喜发财" class="mdcg-img">
+	<img src="image\\268b2be488c5f6c574ae2aa25d3bd3cf696586885a32-M6JAry_fw1200webp.webp" alt="新春快乐" class="spring-img">
+	<img src="image\\29ef2537abb4133c887f32bdecd8e0fe7172c1fe1d2d7-ahoN0i_fw1200.png" alt="马到成功" class="horse-img">
+	
+	<form class="login-form">
+        <div class="form-item">
+            <label for="user">用户名</label>
+            <input type="text" name="user" id="user" placeholder="你名子的拼音">
+        </div>
+        <div class="form-item">
+            <label for="pwd">密 码</label>
+            <input type="password" name="pwd" id="pwd" placeholder="你的生日">
+        </div>
+        <button type="submit" class="submit-btn">登录</button>
+    </form>
+
+	<!-- JS 动态生成雪花 -->
+	<script>
+		const config = {
+			snowCount: 200,
+			minSize: 2,
+			maxSize: 6,
+			minSpeed: 10,
+			maxSpeed: 30
+		};
+
+		function createSnowflake() {
+			const snowflake = document.createElement('div');
+			snowflake.classList.add('snowflake');
+
+			const size = Math.random() * (config.maxSize - config.minSize) + config.minSize;
+			snowflake.style.width = `${size}px`;
+			snowflake.style.height = `${size}px`;
+
+			const leftPos = Math.random() * 100;
+			snowflake.style.left = `${leftPos}vw`;
+
+			const duration = Math.random() * (config.maxSpeed - config.minSpeed) + config.minSpeed;
+			snowflake.style.animationDuration = `${duration}s`;
+
+			const delay = Math.random() * 10;
+			snowflake.style.animationDelay = `${delay}s`;
+
+			document.body.appendChild(snowflake);
+
+			setTimeout(() => {
+				snowflake.remove();
+			}, (duration + delay) * 1000);
+		}
+
+		function generateSnow() {
+			for (let i = 0; i < config.snowCount; i++) {
+				createSnowflake();
+			}
+			setInterval(createSnowflake, 150);
+		}
+
+		window.onload = generateSnow;
+	</script>
+</body>
+</html>

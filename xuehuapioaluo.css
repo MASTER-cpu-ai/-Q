@@ -1,0 +1,18 @@
+/* 雪花飘落动画：修复 CSS 不识别 Math.random() 的问题 */
+@keyframes snowfall {
+	0% {
+		transform: translate(0, 0) rotate(0deg);
+		opacity: 0;
+	}
+	10% {
+		opacity: 0.8;
+	}
+	90% {
+		opacity: 0.8;
+	}
+	100% {
+		/* 替换 Math.random()：用固定横向偏移 + JS 随机初始位置实现全屏飘落 */
+		transform: translate(-20vw, 100vh) rotate(720deg);
+		opacity: 0;
+	}
+}
