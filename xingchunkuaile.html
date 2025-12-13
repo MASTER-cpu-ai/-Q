@@ -126,6 +126,12 @@
         .submit-btn:hover {
             background-color: deeppink;
         }
+        /* 错误提示样式 */
+        .tip {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
 
         @media (max-width: 1200px) {
             .horse-img {
@@ -144,14 +150,16 @@
 	</style>
 </head>
 <body>
-	<img src="mdcg.webp" alt="恭喜发财" class="mdcg-img">
-	<img src="268b2be488c5f6c574ae2aa25d3bd3cf696586885a32-M6JAry_fw1200webp.webp" alt="新春快乐" class="spring-img">
-	<img src="29ef2537abb4133c887f32bdecd8e0fe7172c1fe1d2d7-ahoN0i_fw1200.png" alt="马到成功" class="horse-img">
+	<img src="image\\mdcg.webp" alt="恭喜发财" class="mdcg-img">
+	<img src="image\\268b2be488c5f6c574ae2aa25d3bd3cf696586885a32-M6JAry_fw1200webp.webp" alt="新春快乐" class="spring-img">
+	<img src="image\\29ef2537abb4133c887f32bdecd8e0fe7172c1fe1d2d7-ahoN0i_fw1200.png" alt="马到成功" class="horse-img">
 	
-	<form class="login-form">
+	<form class="login-form" onsubmit="return checkLogin()">
+        <!-- 新增错误提示元素（之前缺失） -->
+        <div class="tip" id="tip"></div>
         <div class="form-item">
             <label for="user">用户名</label>
-            <input type="text" name="user" id="user" placeholder="你名子的拼音">
+            <input type="text" name="user" id="user" placeholder="你名字的拼音">
         </div>
         <div class="form-item">
             <label for="pwd">密 码</label>
@@ -162,13 +170,48 @@
 
 	<!-- JS 动态生成雪花 -->
 	<script>
+		// 修复：config对象结尾补全逗号，且函数不再嵌套在对象内
 		const config = {
 			snowCount: 200,
 			minSize: 2,
 			maxSize: 6,
 			minSpeed: 10,
-			maxSpeed: 30
+			maxSpeed: 30 // 补全缺失的逗号
 		};
+
+		// 修复登录验证函数
+		function checkLogin(){
+			const username = document.getElementById('user').value.trim();
+			const password = document.getElementById('pwd').value.trim();
+			const tipEle = document.getElementById('tip'); // 缓存元素，避免重复获取
+
+			// 清空提示
+			tipEle.innerText = '';
+
+			// 验证非空
+			if (!username) {
+				tipEle.innerText = '用户名没有填写哦~';
+				return false; // 阻止表单默认提交
+			}
+			if (!password) {
+				tipEle.innerText = "密码没有填写哦~";
+				return false;
+			}
+
+			// 指定的账号密码
+			const targetUser = 'yanshurui';
+			const targetPwd = '20040624';
+
+			// 验证账号密码
+			if (username === targetUser && password === targetPwd) {
+				window.location.href = 'success.html'; // 拼写正确
+				return false;
+			}else{
+				// 修复：getMElementById → getElementById
+				tipEle.innerText = "用户名或密码不对哦~";
+				return false;
+			}
+		}
 
 		function createSnowflake() {
 			const snowflake = document.createElement('div');
@@ -204,5 +247,5 @@
 		window.onload = generateSnow;
 	</script>
 </body>
-
 </html>
+
